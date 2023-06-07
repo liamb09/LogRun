@@ -25,8 +25,9 @@ header {
 #logo {
     color: white;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-right: auto;
+    height: 40px;
 }
 
 #page-links {
@@ -101,4 +102,15 @@ header {
 
 .record-run-button:hover {
     background-color: var(--darkoffwhite);
+}
+
+#enter-run-info {
+    width: 75%;
+    margin: auto;
+    font-size: 40px;
+}
+
+.record-run-textbox {
+    height: 40px;
+    display: inline-block;
 }
