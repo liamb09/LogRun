@@ -107,10 +107,13 @@ header {
 #enter-run-info {
     width: 75%;
     margin: auto;
-    font-size: 40px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
 }
 
-.record-run-textbox {
-    height: 40px;
-    display: inline-block;
+.record-run-input {
+    height: 35px;
+    vertical-align: middle;
+    font-size: 23px;
 }

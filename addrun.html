@@ -19,7 +19,20 @@
     </div>
     <br>
     <div id="enter-run-info">
-        <label for="record-run-title">Title</label>
-        <input type="text" name="record-run-title" class="record-run-textbox">
+        <label for="record-run-title">Title: </label><input type="text" name="record-run-title" style="width:85%;" class="record-run-input"><br>
+        <label for="record-run-distance">Distance: </label><input type="number" min="0.25" step="0.01" name="record-run-distance" style="width:70px;" class="record-run-input">
+        <select class="record-run-input" style="height: 40px !important;">
+            <option value="mi">mi</option>
+            <option value="km">km</option>
+        </select><br>
+        <label for="record-run-type">Type: </label>
+        <select name="record-run-type" id="run-type-selector" class="record-run-input" onchange="enableOtherTextbox()">
+            <option value="solo">Solo Run</option>
+            <option value="group">Group Run</option>
+            <option value="race">Race</option>
+            <option value="other">Other</option>
+        </select>
+        <input id="record-run-other-textbox" class="record-run-input" disabled="disabled"><br>
+        <input type="checkbox" name="record-run-color-checkbox" class="record-run-input" style="width: 20px;height: 20px;margin-right: 5px;" id="record-run-color-checkbox" onchange="disableColorInput()" checked><label for="record-run-color-checkbox">Color:</label> <input type="color" name="record-run-color" class="record-run-input" id="record-run-color-input" value="#0d68de">
     </div>
 </html>
