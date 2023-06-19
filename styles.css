@@ -87,20 +87,19 @@ header {
     position: relative;
 }
 
-.record-run-button {
-    margin: 0;
+.button {
     left: 50%;
     position: absolute;
     -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     border: 3px solid var(--blue);
-    font-size: 50px;
+    font-size: 40px;
     border-radius: 15px;
     width: 300px;
     background-color: var(--offwhite);
 }
 
-.record-run-button:hover {
+.button:hover {
     background-color: var(--darkoffwhite);
 }
 
@@ -116,4 +115,16 @@ header {
     height: 35px;
     vertical-align: middle;
     font-size: 23px;
+}
+
+#example-text {
+    background-color: #339ecc;
+    color: white;
+    height: 50px;
+}
+
+.example-text-container {
+    margin: auto;
+    text-align: center;
+    width: 215px;
 }
