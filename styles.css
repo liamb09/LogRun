@@ -77,10 +77,17 @@ header {
     font-size: 30px;
 }
 
-#mile-count {
+#mile-count-label {
     text-align: center;
     color: var(--blue);
     font-size: 65px;
+}
+
+#micount {
+    text-align: center;
+    color: var(--blue);
+    font-size: 85px;
+    font-weight: bold;
 }
 
 #record-run-button-container {

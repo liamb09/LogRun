@@ -18,7 +18,7 @@
     <br>
     <form id="enter-run-info" action="log.php" method="post">
         <label for="record-run-title">Title </label><input type="text" name="record-run-title" style="width:85%;" class="record-run-input" required><br>
-        <label for="record-run-distance">Distance </label><input type="number" min="0.25" step="0.01" name="record-run-distance" style="width:90px;" class="record-run-input" required><br>
+        <label for="record-run-distance">Distance </label><input type="number" min="0.25" step="0.01" name="record-run-distance" id="record-run-distance" style="width:90px;" class="record-run-input" required><br>
         <label for="record-run-type">Type </label>
         <select name="record-run-type" id="run-type-selector" class="record-run-input" onchange="enableOtherTextbox()">
             <option value="solo">Solo Run</option>
@@ -31,6 +31,6 @@
         <input type="checkbox" name="record-run-text-color-checkbox" class="record-run-input" style="width: 20px;height: 20px;margin-right: 5px;" id="record-run-text-color-checkbox" onchange="disableColorInput('text')" checked><label for="record-run-text-color-checkbox">Text Color</label> <input type="color" name="record-run-color" class="record-run-input" id="record-run-text-color-input" value="#ffffff" onchange="updateExampleText()"><br>
         <div class="example-text-container"><p id="example-text" class="record-run-input" style="margin-bottom:14px;font-size:30px;">Example Text</p></div>
         <label for="record-run-workout-details">Details </label><textarea class="record-run-input" name="record-run-workout-details" placeholder="Enter workout structure or details here..." style="width: 83%; height: 110px; resize: none;" maxlength="400"></textarea><br>
-        <input type="submit" class="button" value="Add Workout" style="margin-top:10px;">
+        <input type="submit" class="button" value="Add Workout" style="margin-top:10px;" onclick="updateData()">
     </form>
 </html>

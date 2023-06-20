@@ -40,3 +40,54 @@ function updateExampleText () {
     document.getElementById("example-text").style.backgroundColor = document.getElementById("record-run-color-input").value
     document.getElementById("example-text").style.color = document.getElementById("record-run-text-color-input").value
 }
+
+function updateData () {
+    if (!localStorage.getItem("mi")) {
+        localStorage.setItem("mi", "0")
+    }
+    localStorage.setItem("mi", (Math.round((parseFloat(localStorage.getItem("mi")) + parseFloat(document.getElementById("record-run-distance").value))*100)/100).toString())
+}
+
+function setNumberLength (num, normPlaces, decPlaces) {
+    let result = num.toString()
+    if (!result.includes(".")) {
+        result += ".00"
+    }
+    if (result.split(".")[1].length != decPlaces) {
+        for (let i=0; i < decPlaces - result.split(".")[1].length; i++) {
+            result += "0"
+        }
+    }
+    if (result.split(".")[0].length != normPlaces) {
+        for (let i=0; i < normPlaces - result.split(".")[0].length; i++) {
+            result = "0" + result
+        }
+    }
+    return result
+}
+
+function updateTotalMiles () {
+    let totalMiles
+    if (localStorage.getItem("mi")) {
+        totalMiles = parseFloat(localStorage.getItem("mi"))
+    } else {
+        totalMiles = 0
+        localStorage.setItem("mi", "0")
+    }
+    let tmnormplaces
+    if (totalMiles.toString().includes(".")) {
+        tmnormplaces = totalMiles.toString().split(".")[0].length
+    } else {
+        tmnormplaces = totalMiles.toString().length
+    }
+    let displayMiles = 0
+    let countUp = setInterval(function () {
+        displayMiles += Math.round(totalMiles/3)/100
+        displayMiles = Math.round(displayMiles*100)/100
+        document.getElementById("micount").innerHTML = setNumberLength(displayMiles, tmnormplaces, 2)
+        if (displayMiles >= totalMiles) {
+            document.getElementById("micount").innerHTML = setNumberLength(totalMiles, tmnormplaces, 2)
+            clearInterval(countUp)
+        }
+    }, 1)
+}
