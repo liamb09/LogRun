@@ -55,7 +55,7 @@ header {
 
 .road {
     width: 100%;
-    height: 475px;
+    height: 400px;
 }
 
 .page-title {
@@ -77,17 +77,23 @@ header {
     font-size: 30px;
 }
 
-#mile-count-label {
+#num-display-count-label {
     text-align: center;
     color: var(--blue);
     font-size: 65px;
 }
 
-#micount {
+#micount, #runcount {
     text-align: center;
     color: var(--blue);
     font-size: 85px;
     font-weight: bold;
+}
+
+#display-container {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
 }
 
 #record-run-button-container {
@@ -104,6 +110,7 @@ header {
     border-radius: 15px;
     width: 300px;
     background-color: var(--offwhite);
+    color: var(--blue)
 }
 
 .button:hover {

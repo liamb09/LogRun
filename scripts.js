@@ -45,7 +45,11 @@ function updateData () {
     if (!localStorage.getItem("mi")) {
         localStorage.setItem("mi", "0")
     }
+    if (!localStorage.getItem("runs")) {
+        localStorage.setItem("runs", "0")
+    }
     localStorage.setItem("mi", (Math.round((parseFloat(localStorage.getItem("mi")) + parseFloat(document.getElementById("record-run-distance").value))*100)/100).toString())
+    localStorage.setItem("runs", (parseInt(localStorage.getItem("runs")) + 1).toString())
 }
 
 function setNumberLength (num, normPlaces, decPlaces) {
@@ -66,7 +70,7 @@ function setNumberLength (num, normPlaces, decPlaces) {
     return result
 }
 
-function updateTotalMiles () {
+function updateStats () {
     let totalMiles
     if (localStorage.getItem("mi")) {
         totalMiles = parseFloat(localStorage.getItem("mi"))
@@ -80,13 +84,29 @@ function updateTotalMiles () {
     } else {
         tmnormplaces = totalMiles.toString().length
     }
+    let totalRuns
+    if (localStorage.getItem("runs")) {
+        totalRuns = parseInt(localStorage.getItem("runs"))
+    } else {
+        totalRuns = 0
+        localStorage.setItem("runs", "0")
+    }
     let displayMiles = 0
+    let displayRuns = 0
+    let frames = Math.floor(totalMiles/(Math.round(totalMiles/2)/100))
+    let currentFrame = 0
     let countUp = setInterval(function () {
-        displayMiles += Math.round(totalMiles/3)/100
+        currentFrame += 1
+        displayMiles += Math.round(totalMiles/2)/100
         displayMiles = Math.round(displayMiles*100)/100
+        if (currentFrame % Math.round(frames/totalRuns) == 0) {
+            displayRuns += 1
+        }
         document.getElementById("micount").innerHTML = setNumberLength(displayMiles, tmnormplaces, 2)
+        document.getElementById("runcount").innerHTML = displayRuns
         if (displayMiles >= totalMiles) {
             document.getElementById("micount").innerHTML = setNumberLength(totalMiles, tmnormplaces, 2)
+            document.getElementById("runcount").innerHTML = totalRuns
             clearInterval(countUp)
         }
     }, 1)
