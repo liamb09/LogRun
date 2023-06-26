@@ -48,6 +48,17 @@ function updateData () {
     if (!localStorage.getItem("runs")) {
         localStorage.setItem("runs", "0")
     }
+    // Run is a object with all the data from the run that the user just entered. Next use IndexedDB to save data.
+    let run = {
+        title: document.getElementById("record-run-title").value,
+        mi: document.getElementById("record-run-distance").value,
+        time: `${document.getElementById("record-run-time-hr").value.toString()}:${document.getElementById("record-run-time-min").value.toString()}:${document.getElementById("record-run-time-sec").value.toString()}`,
+        date: document.getElementById("record-run-date").value,
+        type: (document.getElementById("run-type-selector").value == "other" ? document.getElementById("record-run-other-textbox").value : document.getElementById("run-type-selector").value),
+        backgroundColor: document.getElementById("record-run-color-input").value,
+        textColor: document.getElementById("record-run-text-color-input").value,
+        details: document.getElementById("record-run-details").value
+    }
     localStorage.setItem("mi", (Math.round((parseFloat(localStorage.getItem("mi")) + parseFloat(document.getElementById("record-run-distance").value))*100)/100).toString())
     localStorage.setItem("runs", (parseInt(localStorage.getItem("runs")) + 1).toString())
 }

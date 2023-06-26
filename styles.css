@@ -142,3 +142,37 @@ header {
     text-align: center;
     width: 215px;
 }
+
+#log-details-container {
+    width: 100%;
+    margin: auto;
+    height: 200px;
+    background-color: #339eec;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+#log-details-number {
+    height: 100%;
+    width: 12vw;
+    text-align: center;
+    padding-top: 47px;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+#log-details-description {
+    font-size: 20px;
+    width: 40vw;
+}
+
+#log-details-title {
+    line-height: 70px;
+    font-size: 40px;
+}
+
+#between-run {
+    line-height: 5px;
+}

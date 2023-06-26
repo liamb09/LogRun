@@ -17,10 +17,10 @@
     </div>
     <br>
     <form id="enter-run-info" action="log.html" method="post">
-        <label for="record-run-title">Title </label><input type="text" name="record-run-title" style="width:85%;" class="record-run-input" required><br>
+        <label for="record-run-title">Title </label><input type="text" name="record-run-title" style="width:85%;" class="record-run-input" id="record-run-title" required><br>
         <label for="record-run-distance">Distance </label><input type="number" min="0.25" step="0.01" name="record-run-distance" id="record-run-distance" style="width:90px;" class="record-run-input" required><br>
-        <label for="record-run-time">Time </label><input type="number" name="record-run-time" class="record-run-input" style="width: 63px !important;" placeholder="hr" min="0">:<input type="number" class="record-run-input" style="width: 63px !important;" placeholder="min" min="0" max="59">:<input type="number" class="record-run-input" style="width: 63px !important;" placeholder="sec" min="0" max="59"><br>
-        <label for="record-run-date">Date </label><input type="date" name="record-run-date" class="record-run-input" required><br>
+        <label for="record-run-time">Time </label><input type="number" name="record-run-time" class="record-run-input" style="width: 63px !important;" placeholder="hr" min="0" id="record-run-time-hr">:<input type="number" class="record-run-input" style="width: 63px !important;" placeholder="min" min="0" max="59" id="record-run-time-min">:<input type="number" class="record-run-input" style="width: 63px !important;" placeholder="sec" min="0" max="59" id="record-run-time-sec"><br>
+        <label for="record-run-date">Date </label><input type="date" name="record-run-date" class="record-run-input" id="record-run-date" required><br>
         <label for="record-run-type">Type </label>
         <select name="record-run-type" id="run-type-selector" class="record-run-input" onchange="enableOtherTextbox()">
             <option value="solo">Solo Run</option>
@@ -28,11 +28,11 @@
             <option value="race">Race</option>
             <option value="other">Other</option>
         </select>
-        <input id="record-run-other-textbox" class="record-run-input" disabled="disabled"><br>
+        <input id="record-run-other-textbox" class="record-run-input" disabled="disabled" maxlength="9"><br>
         <input type="checkbox" name="record-run-color-checkbox" class="record-run-input" style="width: 20px;height: 20px;margin-right: 5px;" id="record-run-color-checkbox" onchange="disableColorInput('back')" checked><label for="record-run-color-checkbox">Background Color</label> <input type="color" name="record-run-color" class="record-run-input" id="record-run-color-input" value="#339ecc" onchange="updateExampleText()"><br>
         <input type="checkbox" name="record-run-text-color-checkbox" class="record-run-input" style="width: 20px;height: 20px;margin-right: 5px;" id="record-run-text-color-checkbox" onchange="disableColorInput('text')" checked><label for="record-run-text-color-checkbox">Text Color</label> <input type="color" name="record-run-color" class="record-run-input" id="record-run-text-color-input" value="#ffffff" onchange="updateExampleText()"><br>
         <div class="example-text-container"><p id="example-text" class="record-run-input" style="margin-bottom:14px;font-size:30px;">Example Text</p></div>
-        <label for="record-run-workout-details">Details </label><textarea class="record-run-input" name="record-run-workout-details" placeholder="Enter workout structure or details here..." style="width: 83%; height: 110px; resize: none;" maxlength="400"></textarea><br>
+        <label for="record-run-workout-details">Details </label><textarea class="record-run-input" name="record-run-workout-details" placeholder="Enter workout structure or details here..." style="width: 83%; height: 110px; resize: none;" maxlength="400" id="record-run-details"></textarea><br>
         <input type="submit" class="button" value="Add Workout" style="margin-top:10px;" onclick="updateData()">
     </form>
 </html>
